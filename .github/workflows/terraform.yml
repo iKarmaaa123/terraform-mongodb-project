@@ -107,7 +107,7 @@ jobs:
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
-      working-directory: terraform-mongodb-project\main
+      working-directory: /main
       run: terraform plan -input=false
 
       # On push to "main", build or change infrastructure according to Terraform configuration files
