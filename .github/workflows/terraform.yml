@@ -84,11 +84,11 @@ jobs:
 
     # Configuring MongoDB credentials
     - name: Configuring MongoDB credentials
-      env:
+      env:  |
         MONGODB_ATLAS_PUBLIC_KEY: ${{ secrets.MONGODB_ATLAS_PUBLIC_KEY }}
         MONGODB_ATLAS_PRIVATE_KEY: ${{ secrets.MONGODB_ATLAS_PRIVATE_KEY }}
         MONGODB_REGION: "US-EAST-1"
-      run:
+      run:  |
         export TF_VAR_mongodb_atlas_public_key=$MONGODB_ATLAS_PUBLIC_KEY
         export TF_VAR_mongodb_atlas_private_key=$MONGODB_ATLAS_PRIVATE_KEY
         export TF_VAR_mongodb_region=$MONGODB_REGION
@@ -107,7 +107,7 @@ jobs:
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
-      run: 
+      run:  | 
         - cd main
         - terraform plan
 
