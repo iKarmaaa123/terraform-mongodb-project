@@ -87,6 +87,7 @@ jobs:
         MONGODB_ATLAS_PUBLIC_KEY: ${{ secrets.MONGODB_ATLAS_PUBLIC_KEY }}
         MONGODB_ATLAS_PRIVATE_KEY: ${{ secrets.MONGODB_ATLAS_PRIVATE_KEY }}
         MONGODB_REGION: "US_EAST_1"
+        MONGODB_ATLAS_ORG_ID: ${{ secrets.MONGODB_ATLAS_ORG_ID }}
       run: |
         cd main
         export TF_VAR_mongodb_atlas_public_key=$MONGODB_ATLAS_PUBLIC_KEY
