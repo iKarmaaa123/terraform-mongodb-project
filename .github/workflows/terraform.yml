@@ -58,12 +58,6 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
 
-    env:
-      MONGODB_ATLAS_PUBLIC_API_KEY: ${{ secrets.MONGODB_ATLAS_PUBLIC_KEY }}
-      MONGODB_ATLAS_PRIVATE_API_KEY: ${{ secrets.MONGODB_ATLAS_PRIVATE_KEY }}
-      MONGODB_REGION: "US-EAST-1"
-
-
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
       run:
@@ -87,6 +81,16 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID}}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_key }}
         aws-region: us-east-1
+
+    - name: Configure MongoDB credentials
+      env:
+        MONGODB_ATLAS_PUBLIC_KEY: ${{ secrets.MONGODB_ATLAS_PUBLIC_KEY }}
+        MONGODB_ATLAS_PRIVATE_KEY: ${{ secrets.MONGODB_ATLAS_PRIVATE_KEY }}
+        MONGODB_REGION: "US_EAST_1"
+      run: |
+        export TF_VAR_mongodb_atlas_public_key=$MONGODB_ATLAS_PUBLIC_KEY
+        export TF_VAR_mongodb_atlas_public_key=$MONGODB_ATLAS_PRIVATE_KEY
+        export TF_VAR_mongodb_atlas_region=$MONGODB_REGION
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
