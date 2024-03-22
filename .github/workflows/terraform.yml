@@ -90,9 +90,9 @@ jobs:
         MONGODB_ATLAS_ORG_ID: ${{ secrets.MONGODB_ATLAS_ORG_ID }}
       run: |
         cd main
-        export MONGODB_ATLAS_PUBLIC_KEY=$MONGODB_ATLAS_PUBLIC_KEY
-        export MONGODB_ATLAS_PRIVATE_KEY=$MONGODB_ATLAS_PRIVATE_KEY
-        export MONGODB_ATLAS_REGION=$MONGODB_REGION
+        export TF_VAR_MONGODB_ATLAS_PUBLIC_KEY=$MONGODB_ATLAS_PUBLIC_KEY
+        export TF_VAR_MONGODB_ATLAS_PRIVATE_KEY=$MONGODB_ATLAS_PRIVATE_KEY
+        export TF_VAR_MONGODB_ATLAS_REGION=$MONGODB_REGION
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
