@@ -82,11 +82,11 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_key }}
         aws-region: us-east-1
 
-    - name: Configure MongoDB credentials
-      env:
-        MONGODB_ATLAS_PUBLIC_KEY: ${{ secrets.MONGODB_ATLAS_PUBLIC_KEY }}
-        MONGODB_ATLAS_PRIVATE_KEY: ${{ secrets.MONGODB_ATLAS_PRIVATE_KEY }}
-        MONGODB_REGION: "US_EAST_1"
+    #- name: Configure MongoDB credentials
+      #env:
+        #MONGODB_ATLAS_PUBLIC_KEY: ${{ secrets.MONGODB_ATLAS_PUBLIC_KEY }}
+        #MONGODB_ATLAS_PRIVATE_KEY: ${{ secrets.MONGODB_ATLAS_PRIVATE_KEY }}
+        #MONGODB_REGION: "US_EAST_1"
       
       #run: |
         #cd main
