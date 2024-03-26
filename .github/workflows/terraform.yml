@@ -85,12 +85,11 @@ jobs:
     - name: Configure MongoDB credentials
       
       run: |
-        cd main
         export TF_VAR_MONGODB_ATLAS_PUBLIC_KEY=$MONGODB_ATLAS_PUBLIC_API_KEY
         export TF_VAR_MONGODB_ATLAS_PRIVATE_KEY=$MONGODB_ATLAS_PRIVATE_API_KEY
         export TF_VAR_MONGODB_ATLAS_REGION=$MONGODB_REGION
 
-      env:
+        env:
         MONGODB_ATLAS_PUBLIC_API_KEY: ${{ secrets.MONGODB_ATLAS_PUBLIC_KEY }}
         MONGODB_ATLAS_PRIVATE_API_KEY: ${{ secrets.MONGODB_ATLAS_PRIVATE_KEY }}
         MONGODB_REGION: "US_EAST_1"
