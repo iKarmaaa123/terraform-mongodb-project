@@ -103,15 +103,9 @@ jobs:
       # On push to "main", build or change infrastructure according to Terraform configuration files
       # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checksmmfgmfdmd,fmg
     - name: Terraform Apply
-      
-      env:
-        MONGODB_ATLAS_PUBLIC_API_KEY: ${{ secrets.MONGODB_ATLAS_PUBLIC_KEY }}
-        MONGODB_ATLAS_PRIVATE_API_KEY: ${{ secrets.MONGODB_ATLAS_PRIVATE_KEY }}
-        MONGODB_REGION: "US_EAST_1"
-      
       run: |
           cd main
-          export TF_VAR_MONGODB_ATLAS_PUBLIC_API_KEY=$MONGODB_ATLAS_PUBLIC_API_KEY
-          export TF_VAR_MONGODB_ATLAS_PRIVATE_API_KEY=$MONGODB_ATLAS_PRIVATE_API_KEY
-          export TF_VAR_MONGODB_ATLAS_REGION=$MONGODB_REGION
+          export TF_VAR_MONGODB_ATLAS_PUBLIC_API_KEY=${{ secrets.MONGODB_ATLAS_PUBLIC_KEY }}
+          export TF_VAR_MONGODB_ATLAS_PRIVATE_API_KEY=${{ secrets.MONGODB_ATLAS_PRIVATE_KEY }}
+          export TF_VAR_MONGODB_ATLAS_REGION="US-EAST-1"
           terraform apply -auto-approve -input=false
