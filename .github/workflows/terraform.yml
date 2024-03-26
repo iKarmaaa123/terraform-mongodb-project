@@ -83,16 +83,17 @@ jobs:
         aws-region: us-east-1
 
     - name: Configure MongoDB credentials
-      env:
-        MONGODB_ATLAS_PUBLIC_API_KEY: ${{ secrets.MONGODB_ATLAS_PUBLIC_KEY }}
-        MONGODB_ATLAS_PRIVATE_API_KEY: ${{ secrets.MONGODB_ATLAS_PRIVATE_KEY }}
-        MONGODB_REGION: "US_EAST_1"
       
       run: |
         cd main
         export TF_VAR_MONGODB_ATLAS_PUBLIC_KEY=$MONGODB_ATLAS_PUBLIC_API_KEY
         export TF_VAR_MONGODB_ATLAS_PRIVATE_KEY=$MONGODB_ATLAS_PRIVATE_API_KEY
         export TF_VAR_MONGODB_ATLAS_REGION=$MONGODB_REGION
+
+      env:
+        MONGODB_ATLAS_PUBLIC_API_KEY: ${{ secrets.MONGODB_ATLAS_PUBLIC_KEY }}
+        MONGODB_ATLAS_PRIVATE_API_KEY: ${{ secrets.MONGODB_ATLAS_PRIVATE_KEY }}
+        MONGODB_REGION: "US_EAST_1"
       
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
